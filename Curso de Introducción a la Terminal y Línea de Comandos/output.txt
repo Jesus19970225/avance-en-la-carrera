@@ -1,0 +1,10 @@
+total 5.0K
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 abc
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 datos1
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 datos123
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 dot.txt
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 dot2.txt
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 file.txt
+-rw-r--r-- 1 Jesús David Gómez 197121    0 abr. 23 23:43 index.html
+-rw-r--r-- 1 Jesús David Gómez 197121  569 abr. 24 10:26 output.txt
+-rw-r--r-- 1 Jesús David Gómez 197121 2.0K abr. 23 12:34 principios-de-usabilidad.txt
