@@ -1,0 +1,3 @@
+click==8.0.1
+colorama==0.4.4
+-e git+git@github.com:Jesus19970225/avance-en-la-carrera.git@3f2cd156a86bf615e865ef152818c76ddfc9daf7#egg=pv&subdirectory=curso práctico de python creación de un crud\platzi-ventas
