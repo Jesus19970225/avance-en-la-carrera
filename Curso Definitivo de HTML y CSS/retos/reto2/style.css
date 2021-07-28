@@ -1,0 +1,42 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h2 {
+    position: relative;
+    border-radius: 13px;
+    background-color: yellow;
+    text-align: center;
+    font-size: 1.8rem;
+    width: 24%;
+    height: 30px;
+    padding-top: 6px;
+    margin: auto;
+
+    top: 10px;
+}
+p {
+    font-size: 1.6rem;
+    background-color: brown;
+    width: 40%;
+    height: 300px;
+    text-align: center;
+    padding-top: 250px;
+    padding-bottom: 50px;
+    margin: auto;
+    border-radius: 20px;
+    position: static;
+}
+img {
+    position: absolute;
+    left: 40%;
+    padding-top: 15px;
+    margin: auto;
+    width: 20%;
+}

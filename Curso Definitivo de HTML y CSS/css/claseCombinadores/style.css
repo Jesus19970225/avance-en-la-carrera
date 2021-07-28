@@ -1,0 +1,19 @@
+/* hermanos sercanos, altera todas las etiquetas sercanas en cascada 
+ h2 + p {
+    color:  red;
+} */
+
+/* altera todas las etiquetas hermanas que esten dentro de la misma etiqueta
+h2 ~ p {
+    color: red;
+} */
+
+/* altera las etiquetas que sean hijas directa 
+div > p {
+    color: red;
+} */
+
+/* todas las etiquetas que sean hijas de otra etiqueta, osea que esten adentro de una etiqueta especifica */
+div p {
+    color: red;
+} 

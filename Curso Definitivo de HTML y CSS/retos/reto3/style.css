@@ -1,0 +1,337 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-size: 62.5%;
+}
+.nav {
+    max-width: 1060px;
+    background-color: #30425f;
+    background-image: url(//ltn.hitomi.la/navbg.jpg);
+    height: 41px;
+    margin: auto;
+}
+.nav li {
+    list-style: none;
+    display: inline-block;
+    position: relative;
+}
+.lista a:hover {
+    background-color: #29313d;
+}
+.nav li a {
+    display: inline-block;
+    padding: 10px 15px;
+    line-height: 40px;
+    color: inherit;
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font: 18px Arial,Helvetica,sans-serif;
+    vertical-align: middle;
+    max-height: 100%;
+}
+.nav .one {
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 10;
+}
+.nav li a figure {
+    padding: 0;
+    width: 80px;
+    height: 28px;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.nav li a figure img {
+    max-height: 100%;
+    max-width: 100%;
+}
+.nav li a form label {
+    display: table-cell;
+    vertical-align: top;
+    width: 100%;
+    position: relative;
+}
+label button {
+    display: table-cell;
+    width: 65px;
+    height: 30px;
+    line-height: inherit ;
+    font: bold 14px Arial,Helvetica,sans-serif;
+    color: #555555;
+    margin-left: 2px;
+} 
+
+
+main section {
+    max-width: 1060px;
+    margin: auto;
+    border-left: 1px solid #BBB;
+    border-right: 1px solid #BBB;
+    border-bottom: 1px solid #BBB;
+    box-shadow: 0 0 10px #ddd;
+    background-color: #fff;
+    overflow: hidden;
+}
+main section .border {
+    background-color: #ffffff;
+    padding: 10px 10px 0 10px;
+}
+main > section > section > section {
+    border: 1px solid #99cccc;
+    color: #336666;
+}
+main section section .adorno {
+    margin-top: 30px;
+    height: 35px;
+    text-transform: capitalize;
+    background-color: #79799a;
+    background-image: url(./pics/adorno.jpg);
+    border: 1px solid #333333;
+    position: relative;
+}
+section div h3 {
+    position: relative;
+    float: left;
+    top: -15px;
+    margin: 0 0 30px 0;
+    padding-left: 20px;
+    color: #ffffff;
+    font: bold 35px Arial,Helvetica,sans-serif;
+    text-shadow: -1px -1px 0 #333333, 1px -1px 0 #333333, -1px 1px 0 #333333, 1px 1px 0 #333333, 0 -2px 0 #333333, 0 2px 0 #333333, -2px 0 0 #333333, 2px 0 0 #333333;
+    white-space: nowrap;
+    overflow-x: hidden;
+    font-size: 25px;
+}
+select {
+    margin: 7px 10px;
+    padding: 0px 10px;
+    position: absolute;
+    right: 0px;
+    text-rendering: auto;
+    color: -internal-light-dark(black, white);
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: auto;
+    box-sizing: border-box;
+    align-items: center;
+    white-space: pre;
+    -webkit-rtl-ordering: logical;
+    background-color: -internal-light-dark(rgb(255, 255, 255), rgb(59, 59, 59));
+    cursor: default;
+    font: 400 13.3333px Arial;
+    border-radius: 2px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: -internal-light-dark(rgb(118, 118, 118), rgb(133, 133, 133));
+    border-image: initial
+}
+select:not(:-internal-list-box) {
+    overflow: visible ;
+}
+.galeria {
+    clear: left;
+    background-color: #fff;
+    text-transform: capitalize;
+    overflow: hidden;
+    padding: 10px 10px 30px 10px;
+}
+.galeria section {
+    border: 1px solid #99cccc;
+    color: #336666;
+    z-index: 0;
+    position: relative;
+    width: 100%;
+    margin: 0 0 20px 0;
+    border-radius: 4px;
+    background-color: #fafafa;
+}
+.galeria h1 {
+    white-space: nowrap;
+    margin: 0;
+    padding-left: 300px;
+    color: #ffffff;
+    font: bold 22px Arial,Helvetica,sans-serif;
+    overflow: hidden;
+}
+.galeria section a {
+    text-decoration: none;
+    color: inherit;
+}
+.galeria > section > a > div {
+    z-index: 999;
+    position: absolute;
+    height: 220px;
+    width: 300px;
+    width: 300px;
+    top: 15px;
+    perspective-origin: 50% 50%;
+    perspective: 750px;
+    transform-style: preserve-3d;
+}
+ a div div {
+    right: 2px;
+    height: 220px;
+    max-width: 160px;
+    min-width: 140px;
+    text-align: center;
+}
+.hoja1 {
+    z-index: 4;
+    position: absolute;
+    right: 2px;
+    border: 1px solid #663333;
+    background-color: #272733;
+    outline: 1px solid transparent;
+}
+picture img {
+    display: block;  
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%); 
+    max-height: 100%;
+    max-width: 100%;
+}
+section > h1 {
+    text-shadow: -1px -1px 0 #336666, 1px -1px 0 #336666, -1px 1px 0 #336666, 1px 1px 0 #336666, 0 -2px 0 #336666, 0 2px 0 #336666, -2px 0 0 #336666, 2px 0 0 #336666;
+    background-color: #99cccc;
+}
+h1 > a {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+.galeria .lista-artista {
+    white-space: nowrap;
+    margin: 0;
+    padding: 2px 5px 2px 300px;
+    font: bold 18px Arial,Helvetica,sans-serif;
+    overflow: hidden;
+}
+.lista-artista {
+    color: #336666;
+    background-color: #ccffff;
+}
+.lista-artista > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+}
+.lista-artista ul > li {
+    display: inline-block;
+}
+.con_extra {
+    padding-left: 300px;
+    font: bold 18px Arial,Helvetica,sans-serif;
+    display: block;
+}
+.con_extra > table {
+    width: 100%;
+    margin-top: 4px;
+    display: table;
+    border-collapse: separate;
+    box-sizing: border-box;
+    text-indent: initial;
+    border-spacing: 2px;
+    border-color: grey;
+}
+table > tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+tbody > tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+tr > .propiedades {
+    color: #666666;
+    width: 150px;
+}
+tr > td {
+    text-align: left;
+    vertical-align: top;
+    padding: 0;
+}
+td > ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+td ul li {
+    padding: 4px 0;
+    margin: 0 4px 4px 0;
+    display: inline-block;
+    color: #ffffff;
+    text-align: -webkit-match-parent;
+    padding: 4px;
+    background-color: #999999;
+    border-radius: 4px;
+    text-decoration: none;
+}
+.con_extra > .fecha {
+    margin: 10px 0 5px 0;
+    color: #77aaaa;
+    white-space: nowrap;
+    padding-bottom: 4px;
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+footer {
+    background-color: #ffffff;
+    margin: auto;
+    text-align: center;
+    padding: 0px 30px 30px 30px;
+    clear: left;
+}
+footer ul {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: inline-block;
+}
+footer ul li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+    display: inline-block;
+    padding: 0 2px;
+    font: bold 18px Arial,Helvetica,sans-serif;
+    color: #777777;
+}
+footer ul li a {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+    text-decoration: none;
+    padding: 4px;
+    color: #444455;
+}
