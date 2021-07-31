@@ -32,8 +32,8 @@ class FiboIter():
         
 
 if __name__ == '__main__':
-    num_max = int(input("Hasta que numero desea que la secuencia llegue: "))
-    fibonacci = FiboIter(num_max)
+    max = int(input("¿Hasta que numero desea que la secuencia llegue?: "))
+    fibonacci = FiboIter(max)
     for element in fibonacci:
         print(element)
         time.sleep(1)
