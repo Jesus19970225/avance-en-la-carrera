@@ -3,7 +3,7 @@ import os
 def decorator(func):
     def wrapper():
         os.system('cls')
-        print('--'*8)
+        print('--'*16)
         func()
 
     return wrapper    
