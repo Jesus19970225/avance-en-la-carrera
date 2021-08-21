@@ -5,8 +5,8 @@ from posts.models import Post
 class PostAdmin(admin.ModelAdmin):
     """Posts Admin model"""
 
-    list_display = ('pk', 'user', 'photo')
-    list_display_links = ('pk', 'user')
+    list_display = ('id', 'user','title', 'photo')
+    list_display_links = ('id', 'user')
     list_editable = ('photo',)
     list_filter = ('created', 'modifed')
 
