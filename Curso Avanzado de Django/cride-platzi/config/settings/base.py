@@ -44,7 +44,8 @@ DJANGO_APPS = [
 ]
 DEFAULT_AUTO_FIELD='django.db.models.AutoField'
 THIRD_PARTY_APPS = [
-    'rest_framework'
+    'rest_framework',
+    'rest_framework.authtoken',
 ]
 LOCAL_APPS = [
     'cride.users.apps.UsersAppConfig',
