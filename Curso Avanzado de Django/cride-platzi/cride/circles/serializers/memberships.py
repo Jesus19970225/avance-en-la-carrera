@@ -42,9 +42,9 @@ class MembershipModelSerializer(serializers.ModelSerializer):
 
 class AddMemberSerializer(serializers.Serializer):
     """Add member serializer.
-    
+
     Handle the addition of a new member to a circle.
-    Circle object must be proivided in the context.
+    Circle object must be provided in the context.
     """
 
     invitation_code = serializers.CharField(min_length=8)
@@ -76,7 +76,7 @@ class AddMemberSerializer(serializers.Serializer):
         """Verify circle is capable of accepting a new member."""
         circle = self.context['circle']
         if circle.is_limited and circle.members.count() >= circle.members_limit:
-            raise serializers.ValidationError('circle has reached its member limit :(')
+            raise serializers.ValidationError('Circle has reached its member limit :(')
         return data
 
     def create(self, data):
@@ -101,7 +101,7 @@ class AddMemberSerializer(serializers.Serializer):
         invitation.used_at = now
         invitation.save()
 
-        # Update issure data
+        # Update issuer data
         issuer = Membership.objects.get(user=invitation.issued_by, circle=circle)
         issuer.used_invitations += 1
         issuer.remaining_invitations -= 1
