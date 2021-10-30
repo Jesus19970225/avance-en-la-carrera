@@ -19,9 +19,9 @@ class Ride(CRideModel):
     comments = models.TextField(blank=True)
 
     departure_location = models.CharField(max_length=255)
-    departure_data = models.DateTimeField()
+    departure_date = models.DateTimeField()
     arrival_location = models.CharField(max_length=255)
-    arrival_data = models.DateTimeField()
+    arrival_date = models.DateTimeField()
 
     rating = models.FloatField(null=True)
 
@@ -36,7 +36,7 @@ class Ride(CRideModel):
         return '{_from} to {to} | {day} {i_time} - {f_time}'.format(
             _from=self.departure_location,
             to=self.arrival_location,
-            day=self.departure_data.strftime('%a %d, %b'),
-            i_time=self.departure_data.strftime('%I:%M %p'),
-            f_time=self.arrival_data.strftime('%I:%M %p')
+            day=self.departure_date.strftime('%a %d, %b'),
+            i_time=self.departure_date.strftime('%I:%M %p'),
+            f_time=self.arrival_date.strftime('%I:%M %p')
         )

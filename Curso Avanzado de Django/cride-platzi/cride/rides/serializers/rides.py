@@ -12,6 +12,21 @@ from datetime import timedelta
 from django.utils import timezone
 
 
+class RideModelSerializer(serializers.ModelSerializer):
+    """Ride model serializer."""
+
+    class Meta:
+        """Meta class."""
+
+        model = Ride
+        fields = '__all__'
+        read_only_fields = (
+            'offered_by',
+            'offered_in',
+            'rating'
+        )
+
+
 class CreateRideSerializer(serializers.ModelSerializer):
     """Create ride serializer."""
 
@@ -24,7 +39,7 @@ class CreateRideSerializer(serializers.ModelSerializer):
         model = Ride
         exclude = ('offered_in', 'passenger', 'rating', 'is_active')
 
-    def validate_departure_data(self, data):
+    def validate_departure_date(self, data):
         """Verify date is not in the past."""
         min_date = timezone.now() + timedelta(minutes=10)
         if data < min_date:
@@ -51,8 +66,8 @@ class CreateRideSerializer(serializers.ModelSerializer):
         except Membership.DoesNotExist:
             raise serializers.ValidationError('User is not an active member of the circle')
 
-        if data['arrival_data'] <= data['departure_data']:
-            raise serializers.ValidationError('Departure data must happen after arrival date.')
+        if data['arrival_date'] <= data['departure_date']:
+            raise serializers.ValidationError('Departure date must happen after arrival date.')
 
         self.context['membership'] = membership
         return data
