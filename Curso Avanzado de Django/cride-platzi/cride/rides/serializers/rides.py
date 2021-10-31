@@ -6,6 +6,7 @@ from rest_framework import serializers
 # Models
 from cride.circles.models import Membership
 from cride.rides.models import Ride
+from cride.users.models import User
 
 # Serializers
 from cride.users.serializers import UserModelSerializer
@@ -52,7 +53,7 @@ class CreateRideSerializer(serializers.ModelSerializer):
         """Meta class."""
 
         model = Ride
-        exclude = ('offered_in', 'passenger', 'rating', 'is_active')
+        exclude = ('offered_in', 'passengers', 'rating', 'is_active')
 
     def validate_departure_date(self, data):
         """Verify date is not in the past."""
@@ -107,3 +108,77 @@ class CreateRideSerializer(serializers.ModelSerializer):
         profile.save()
 
         return ride
+
+
+class JoinRideSerializer(serializers.ModelSerializer):
+    """Join ride serializer."""
+
+    passenger = serializers.IntegerField()
+
+
+    class Meta:
+        """Meta class."""
+
+        model = Ride
+        fields = ('passenger',)
+
+    def validate_passenger(self, data):
+        """Verify passenger exist and is a circle member."""
+        try:
+            user = User.objects.get(pk=data)
+        except User.DoesNotExist:
+            raise serializers.ValidationError('Invalid passenger.')
+
+        circle = self.context['circle']
+        try:
+            membership = Membership.objects.get(
+                user=user,
+                circle=circle,
+                is_active=True
+            )
+        except Membership.DoesNotExist:
+            raise serializers.ValidationError('User is not an active member of the circle.')
+
+        self.context['user'] = user
+        self.context['member'] = membership
+        return data
+
+    def validate(self, data):
+        """Verify rides allow new passengers."""
+        ride = self.context['ride']
+        if ride.departure_date <= timezone.now():
+            raise serializers.ValidationError("you can't join this ride now")
+
+        if ride.available_seats < 1:
+            raise serializers.ValidationError("Ride is already full!")
+
+        if Ride.objects.filter(passengers__pk=data['passenger']):
+            raise serializers.ValidationError('Passenger is already in this trip')
+
+        return data
+
+    def update(self, instance, data):
+        """Add passenger to ride and update stats."""
+        ride = self.context['ride']
+        user = self.context['user']
+
+        ride.passengers.add(user)
+
+        # Profile
+        profile = User.profile
+        profile.rides_taken += 1
+        profile.save()
+
+        # Membership
+        member = self.context['member']
+        member.rides_taken += 1
+        member.save()
+
+        # Circle
+        circle = self.context['circle']
+        circle.rides_taken += 1
+        circle.save()
+
+        return ride
+
+    
