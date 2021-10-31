@@ -115,7 +115,6 @@ class JoinRideSerializer(serializers.ModelSerializer):
 
     passenger = serializers.IntegerField()
 
-
     class Meta:
         """Meta class."""
 
@@ -123,7 +122,7 @@ class JoinRideSerializer(serializers.ModelSerializer):
         fields = ('passenger',)
 
     def validate_passenger(self, data):
-        """Verify passenger exist and is a circle member."""
+        """Verify passenger exists and is a circle member."""
         try:
             user = User.objects.get(pk=data)
         except User.DoesNotExist:
@@ -147,7 +146,7 @@ class JoinRideSerializer(serializers.ModelSerializer):
         """Verify rides allow new passengers."""
         ride = self.context['ride']
         if ride.departure_date <= timezone.now():
-            raise serializers.ValidationError("you can't join this ride now")
+            raise serializers.ValidationError("You can't join this ride now")
 
         if ride.available_seats < 1:
             raise serializers.ValidationError("Ride is already full!")
@@ -158,14 +157,14 @@ class JoinRideSerializer(serializers.ModelSerializer):
         return data
 
     def update(self, instance, data):
-        """Add passenger to ride and update stats."""
+        """Add passenger to ride, and update stats."""
         ride = self.context['ride']
         user = self.context['user']
 
         ride.passengers.add(user)
 
         # Profile
-        profile = User.profile
+        profile = user.profile
         profile.rides_taken += 1
         profile.save()
 
@@ -180,5 +179,3 @@ class JoinRideSerializer(serializers.ModelSerializer):
         circle.save()
 
         return ride
-
-    
