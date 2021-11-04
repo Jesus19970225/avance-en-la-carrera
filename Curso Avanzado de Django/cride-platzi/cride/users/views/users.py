@@ -1,7 +1,7 @@
 """Users views."""
 
 # Django REST Framework
-from rest_framework import mixins, status,viewsets
+from rest_framework import mixins, status, viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 
@@ -76,7 +76,7 @@ class UserViewSet(
         serializer = AccountVerificationSerializer(data= request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
-        data =  {'message': 'Congratulation, now go share some rides!'}
+        data = {'message': 'Congratulation, now go share some rides!'}
         return Response(data, status=status.HTTP_200_OK)
 
     @action(detail=True, methods=['put', 'patch'])
