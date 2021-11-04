@@ -42,7 +42,7 @@ DJANGO_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.admin',
 ]
-DEFAULT_AUTO_FIELD='django.db.models.AutoField'
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 THIRD_PARTY_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
@@ -163,7 +163,7 @@ CELERYD_TASK_SOFT_TIME_LIMIT = 60
 REST_FRAMEWORK = {
     'DEFAULT_RENDERER_CLASSES': (
         'rest_framework.renderers.JSONRenderer',
-    ),'DEFAULT_AUTHENTICATION_CLASSES': (
+    ), 'DEFAULT_AUTHENTICATION_CLASSES': (
          'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
