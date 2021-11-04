@@ -6,10 +6,12 @@ from django.db import models
 # Utilitis
 from cride.utils.models import CRideModel
 
+
 class Circle(CRideModel):
     """Circle model.
 
-    A circle is a privete grup where rides are offered and taken by its members. To join a circle a user must receive an unique invitation code from an existing circle member.
+    A circle is a privete grup where rides are offered and taken by its members.
+    To join a circle a user must receive an unique invitation code from an existing circle member.
     """
 
     name = models.CharField('circle name', max_length=140)

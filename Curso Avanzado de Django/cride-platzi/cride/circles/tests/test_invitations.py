@@ -13,8 +13,6 @@ from cride.users.models import User, Profile
 from rest_framework.authtoken.models import Token
 
 
-
-
 class InvitationsManagerTestCase(TestCase):
     """Invitations manager test case."""
 
@@ -104,7 +102,6 @@ class MemberInvitationsAPITestCase(APITestCase):
             self.circle.slug_name,
             self.user.username
         )
-
 
     def test_response_success(self):
         """Verify request succeed."""

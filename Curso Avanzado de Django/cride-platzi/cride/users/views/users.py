@@ -17,8 +17,8 @@ from cride.users.serializers.profiles import ProfileModelSerializer
 from cride.circles.serializers import CircleModelSerializer
 from cride.users.serializers import (
     AccountVerificationSerializer,
-    UserLoginSerializer, 
-    UserModelSerializer, 
+    UserLoginSerializer,
+    UserModelSerializer,
     UserSignUpSerializer
     )
 
@@ -26,13 +26,14 @@ from cride.users.serializers import (
 from cride.users.models import User
 from cride.circles.models import Circle
 
+
 class UserViewSet(
-    mixins.RetrieveModelMixin,
-    mixins.UpdateModelMixin,
-    viewsets.GenericViewSet
-    ):
+                  mixins.RetrieveModelMixin,
+                  mixins.UpdateModelMixin,
+                  viewsets.GenericViewSet
+                ):
     """User view set.
-    
+
     Handle sing up, login and account verification.
     """
     queryset = User.objects.filter(is_active=True, is_client=True)
@@ -52,7 +53,7 @@ class UserViewSet(
     @action(detail=False, methods=['post'])
     def login(self, request):
         """User sing in."""
-        serializer = UserLoginSerializer(data= request.data)
+        serializer = UserLoginSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user, token = serializer.save()
         data = {
@@ -64,16 +65,16 @@ class UserViewSet(
     @action(detail=False, methods=['post'])
     def signup(self, request):
         """User sing up."""
-        serializer = UserSignUpSerializer(data= request.data)
+        serializer = UserSignUpSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         user = serializer.save()
-        data =  UserModelSerializer(user).data
+        data = UserModelSerializer(user).data
         return Response(data, status=status.HTTP_201_CREATED)
 
     @action(detail=False, methods=['post'])
     def verify(self, request):
         """Account verification."""
-        serializer = AccountVerificationSerializer(data= request.data)
+        serializer = AccountVerificationSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         data = {'message': 'Congratulation, now go share some rides!'}

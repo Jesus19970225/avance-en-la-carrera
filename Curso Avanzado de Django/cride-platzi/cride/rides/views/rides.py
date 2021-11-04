@@ -42,7 +42,7 @@ class RideViewSet(mixins.ListModelMixin,
     ordering = ('departure_date', 'arrival_date', 'available_seats')
     ordering_fields = ('departure_date', 'arrival_date', 'available_seats')
     search_fields = ('departure_location', 'arrival_location')
-    
+
     def dispatch(self, request, *args, **kwargs):
         """Verify that the circle exists."""
         slug_name = kwargs['slug_name']
@@ -90,7 +90,7 @@ class RideViewSet(mixins.ListModelMixin,
     @action(detail=True, methods=['post'])
     def join(self, request, *args, **kwargs):
         """Add requesting user to ride."""
-        ride =self.get_object()
+        ride = self.get_object()
         serializer_class = self.get_serializer_class()
         serializer = serializer_class(
             ride,

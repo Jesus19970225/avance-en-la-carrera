@@ -48,7 +48,7 @@ class CreateRideSerializer(serializers.ModelSerializer):
 
     offered_by = serializers.HiddenField(default=serializers.CurrentUserDefault())
     available_seats = serializers.IntegerField(min_value=1, max_value=15)
-    
+
     class Meta:
         """Meta class."""
 
@@ -66,7 +66,7 @@ class CreateRideSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         """Validate.
-        
+
         Verify that the person who offers the ride is member and also the same user making the request."""
         if self.context['request'].user != data['offered_by']:
             raise serializers.ValidationError('Rides offered on behalf of others are not allowed.')

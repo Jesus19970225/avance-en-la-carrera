@@ -44,7 +44,7 @@ class UserModelSerializer(serializers.ModelSerializer):
 
 class UserSignUpSerializer(serializers.Serializer):
     """User sign up serializer.
-    
+
     Handle sing up data validation and user/profile creation.
     """
 
@@ -91,7 +91,7 @@ class UserSignUpSerializer(serializers.Serializer):
 
 class UserLoginSerializer(serializers.Serializer):
     """User login serializer.
-    
+
     Handle the login request data."""
 
     email = serializers.EmailField()
