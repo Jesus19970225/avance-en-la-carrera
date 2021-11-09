@@ -5,6 +5,7 @@ from enum import Enum
 # Pydantic
 from pydantic import BaseModel
 from pydantic import Field
+from pydantic.networks import EmailStr
 
 # FastAPI
 from fastapi import FastAPI, Body, Query, Path
@@ -21,28 +22,62 @@ class HairColor(Enum):
     red = "red"
 
 class Location(BaseModel):
-    city: str
-    state: str
-    country: str
+    city: str = Field(
+        ...,
+        min_length=1,
+        max_length=50,
+        example="Bogota"
+        )
+    state: str = Field(
+        ...,
+        min_length=1,
+        max_length=50,
+        example="Bogota.D.C"
+        )
+    country: str = Field(
+        ...,
+        min_length=1,
+        max_length=50,
+        example="Colombia"
+        )
 
 class Person(BaseModel):
     first_name: str = Field(
         ...,
         min_length=1,
-        max_length=50
+        max_length=50,
+        example="Miguel"
         )
     last_name: str = Field(
         ...,
         min_length=1,
-        max_length=50
+        max_length=50,
+        example="Torres"
         )
     age: int = Field(
         ...,
         gt=0,
-        le=120
-    )
-    hair_color: Optional[HairColor] = Field(default=None)
-    is_married: Optional[bool] = Field(default=None)
+        le=120,
+        example=25
+        )
+    email: EmailStr = Field(
+        ...,
+        example="lolito@hotdog.com"
+        )
+    hair_color: Optional[HairColor] = Field(default=None, example="black")
+    is_married: Optional[bool] = Field(default=None, example=False)
+
+    # class Config:
+    #     schema_extra = {
+    #         "example": {
+    #             "first_name": "Facundo",
+    #             "last_name": "Garcia Martoni",
+    #             "age": 21,
+    #             "email": "facundo@platzi.com",
+    #             "hair_color": "blonde",
+    #             "is_married": False
+    #         }
+    #     }
 
 @app.get("/")
 def home():
@@ -102,3 +137,4 @@ def update_person(
     results = person.dict()
     results.update(location.dict())
     return results
+    
