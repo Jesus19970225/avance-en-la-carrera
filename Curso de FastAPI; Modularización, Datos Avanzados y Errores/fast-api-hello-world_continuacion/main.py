@@ -96,9 +96,19 @@ class LoginOut(BaseModel):
 
 @app.get(
     path="/",
-    status_code=status.HTTP_200_OK
+    status_code=status.HTTP_200_OK,
+    summary="Home page"
     )
 def home():
+    """
+    Home
+    This endpoint will return a dictionary with the key 'Hello' and the value 'World'.
+
+    Parameters:
+        - None
+
+    Return Hello world as dictionary.
+    """
     return {"hello": "world"}
 
 # Request and Response Body
@@ -107,9 +117,21 @@ def home():
     path="/person/new",
     response_model=PersonOut,
     status_code=status.HTTP_201_CREATED,
-    tags=["Persons"]
+    tags=["Persons"],
+    summary="Create Person in the app"
     )
 def create_person(person: Person = Body(...)):
+    """
+    Create Person
+
+    This path operation create a person in the app and save the information in the database
+
+    Parameters:
+    - Request body parameter: 
+        - **person: Person** -> A person model with first name, last name, age, hair color and marital status
+
+    Return a person model with first name, last name, age, hair color and marital status
+    """
     return person
 
 # Validaciones: Query Parameters
@@ -117,7 +139,8 @@ def create_person(person: Person = Body(...)):
 @app.get(
     path="/person/detail",
     status_code=status.HTTP_200_OK,
-    tags=["Persons"]
+    tags=["Persons"],
+    summary="Get person's details"
     )
 def show_person(
     name: Optional[str] = Query(
@@ -135,6 +158,19 @@ def show_person(
         example=25
         )
 ):
+    """
+    A person's details
+
+    This path operation adds additional information in the application and saves the information in the database
+
+    Parameters:
+    - Query parameter:
+        - **name:str** (optional) -> Name of the person.
+        - **age: str (required) -> Age of the person.
+
+    Returns a json with (name: age)
+
+    """
     return {name: age}
 
 # Validaciones: Path Parameters
@@ -144,7 +180,8 @@ persons = [1, 2, 3, 4, 5]
 @app.get(
     path="/person/detail/{person_id}",
     status_code=status.HTTP_200_OK,
-    tags=["Persons"]
+    tags=["Persons"],
+    
     )
 def show_person(
     person_id: int = Path(
