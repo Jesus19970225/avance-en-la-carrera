@@ -140,7 +140,8 @@ def create_person(person: Person = Body(...)):
     path="/person/detail",
     status_code=status.HTTP_200_OK,
     tags=["Persons"],
-    summary="Get person's details"
+    summary="Get person's details",
+    deprecated=True
     )
 def show_person(
     name: Optional[str] = Query(
@@ -180,8 +181,7 @@ persons = [1, 2, 3, 4, 5]
 @app.get(
     path="/person/detail/{person_id}",
     status_code=status.HTTP_200_OK,
-    tags=["Persons"],
-    
+    tags=["Persons"]
     )
 def show_person(
     person_id: int = Path(
