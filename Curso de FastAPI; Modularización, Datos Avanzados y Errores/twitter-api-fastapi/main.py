@@ -1,4 +1,5 @@
 # Python
+import json
 from uuid import UUID
 from datetime import date, datetime
 from typing import Optional, List
@@ -9,7 +10,7 @@ from pydantic.networks import EmailStr
 from pydantic import Field
 
 #  FastAPI
-from fastapi import FastAPI, status
+from fastapi import FastAPI, status, Body
 
 app = FastAPI()
 
@@ -21,13 +22,12 @@ class UserBase(BaseModel):
 
 class UserLogin(UserBase):
     password: str = Field(
-        ...,
+        ..., 
         min_length=8,
         max_length=64
-        )
+    )
 
-class User(BaseModel):
-    
+class User(UserBase):
     first_name: str = Field(
         ...,
         min_length=1,
@@ -42,19 +42,19 @@ class User(BaseModel):
 
 class UserRegister(User):
     password: str = Field(
-        ...,
+        ..., 
         min_length=8,
         max_length=64
-        )
-
+    )
+    
 class Tweet(BaseModel):
     tweet_id: UUID = Field(...)
     content: str = Field(
-        ...,
-        min_length=1,
+        ..., 
+        min_length=1, 
         max_length=256
-        )
-    create_at: datetime = Field(default=datetime.now())
+    )
+    created_at: datetime = Field(default=datetime.now())
     update_at: Optional[datetime] = Field(default=None)
     by: User = Field(...)
 
@@ -72,7 +72,7 @@ class Tweet(BaseModel):
     summary="Register a User",
     tags=["Users"]
     )
-def signup():
+def signup(user: UserRegister = Body(...)):
     """
     Signup a user
 
@@ -87,9 +87,18 @@ def signup():
         - email: Emailstr
         - first_name: str
         - last_name: str
-        - birth_date: date
+        - birth_date: datetime
     """
-    
+    with open("users.json", "r+", encoding="utf-8") as f: 
+        results = json.loads(f.read())
+        user_dict = user.dict()
+        user_dict["user_id"] = str(user_dict["user_id"])
+        user_dict["birth_date"] = str(user_dict["birth_date"])
+        results.append(user_dict)
+        f.seek(0)
+        f.write(json.dumps(results))
+        return user
+
 
 ### Login a user
 @app.post(
