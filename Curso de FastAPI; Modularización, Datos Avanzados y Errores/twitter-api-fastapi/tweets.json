@@ -5,7 +5,7 @@
         "created_at": "2021-08-20 19:10:35.142788",
         "updated_at": "2021-08-20 22:10:51.838000+00:00",
         "by": {
-            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa1",
             "email": "facundo@example.com",
             "first_name": "Facundo",
             "last_name": "Garc\u00eda Martoni",
@@ -18,7 +18,7 @@
         "created_at": "2021-08-20 19:10:35.142788",
         "updated_at": "2021-08-20 22:10:51.838000+00:00",
         "by": {
-            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa2",
             "email": "miguel@example.com",
             "first_name": "Miguel",
             "last_name": "Garc\u00eda Martoni",
@@ -26,29 +26,16 @@
         }
     },
     {
-        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa7",
-        "content": "Me voy de tweet",
+        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa8",
+        "content": "Ya no me voy",
         "created_at": "2021-08-20 19:10:35.142788",
-        "updated_at": "2021-08-20 22:10:51.838000+00:00",
+        "updated_at": "2021-11-12 21:39:16.930661",
         "by": {
-            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa3",
             "email": "rocio@example.com",
             "first_name": "Rocio",
             "last_name": "Garc\u00eda Martoni",
             "birth_date": "2021-08-20"
-        }
-    },
-    {
-        "tweet_id": "3fa85f64-5717-4562-b3fc-2c963f66afa2",
-        "content": "otro",
-        "created_at": "2021-11-12 15:04:01.140174",
-        "updated_at": "2021-11-12 20:19:42.894000+00:00",
-        "by": {
-            "user_id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-            "email": "lolito@example.com",
-            "first_name": "lol",
-            "last_name": "ito",
-            "birth_date": "2021-11-12"
         }
     }
 ]
