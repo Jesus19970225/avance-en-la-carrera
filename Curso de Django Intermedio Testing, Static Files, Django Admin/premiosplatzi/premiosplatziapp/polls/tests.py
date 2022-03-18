@@ -76,3 +76,36 @@ class QuestionIndexViewTest(TestCase):
         question = create_question("Past question", days=-10)
         response = self.client.get(reverse("polls:index"))
         self.assertQuerysetEqual(response.context["latest_question_list"], [question])
+
+
+    def test_future_question_and_past_question(self):
+        """
+        Even if both past and future question exist, only past question are displayed
+        """
+        past_question = create_question(question_text="Past question", days=-30)
+        future_question = create_question(question_text="Future question", days=30)
+        response = self.client.get(reverse("polls:index"))
+        self.assertQuerysetEqual(
+            response.context["latest_question_list"], [past_question]
+        )
+
+    def test_two_past_questions(self):
+        """
+        The question index page may display multiple question.
+        """
+        past_question1 = create_question(question_text="Past question 1", days=-30)
+        past_question2 = create_question(question_text="Past question 2", days=-40)
+        response = self.client.get(reverse("polls:index"))
+        self.assertQuerysetEqual(
+            response.context["latest_question_list"], [past_question1, past_question2]
+        )
+
+    def test_two_future_question(self):
+        """
+        Question with a pub_date in the future aren't displayed multiple question on the index page.
+        """
+        future_question1 = create_question("Future question 1", days=30)
+        future_question2 = create_question("Future question 2", days=10)
+        response = self.client.get(reverse("polls:index"))
+        self.assertContains(response, "No polls are available.")
+        self.assertQuerysetEqual(response.context["latest_question_list"], [])
