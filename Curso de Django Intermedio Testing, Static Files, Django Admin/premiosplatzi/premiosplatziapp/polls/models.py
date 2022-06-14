@@ -13,17 +13,17 @@ class Question(models.Model):
     def was_published_recently(self):
         return timezone.now() >= self.pub_date >= timezone.now() - datetime.timedelta(days=1)
 
-    def save(self, *args, **kwargs):
-        choices = kwargs.get("choices")
+    # def save(self, *args, **kwargs):
+    #     choices = kwargs.get("choices")
 
-        if choices and len(choices) > 0:
-            kwargs.pop("choices", None)
-            super().save(*args, **kwargs)
-            for choice in choices:
-                choice.question = self
-                choice.save()
-        else:
-            raise ValueError("Should have choices")
+    #     if choices and len(choices) > 0:
+    #         kwargs.pop("choices", None)
+    #         super().save(*args, **kwargs)
+    #         for choice in choices:
+    #             choice.question = self
+    #             choice.save()
+    #     else:
+    #         raise ValueError("Should have choices")
 
 class Choice(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
