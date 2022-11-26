@@ -6,3 +6,6 @@
 *.egg-info
 __pycache__
 docker/
+*.png
+*.jpg
+*.webp
