@@ -1,35 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Ejemplo HTML y CSS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Portafolio Personal</title>
     <style>
-        /* Estilo para el encabezado */
-        h1 {
-            color: blue;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F5CBFF;
+        }
+    
+        header {
+            background-color: #F49AC2;
+            color: #fff;
             text-align: center;
+            padding: 20px;
         }
 
-        /* Estilo para el párrafo */
+        /* Estilos para la imagen */
+        header img {
+            width: 170px; /* Establece el ancho deseado */
+            height: auto; /* Automáticamente ajusta la altura para mantener la proporción */
+            border-radius: 50%; /*Opcional: agregar borde redondeado a la imagen*/
+        }
+
+    
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    
+        h1 {
+            color: #333;
+        }
+    
+        h2 {
+            color: #333;
+        }
+    
         p {
-            font-size: 18px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-
-        /* Estilo para un div con clase "caja" */
-        .caja {
-            background-color: lightgray;
-            border: 1px solid gray;
-            padding: 10px;
-            margin: 20px;
+    
+        /* Estilos para secciones */
+        section {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #AED6F1;
+            border: 1px solid #ddd;
+            border-radius: 5px;
         }
-    </style>
+    
+        /* Estilos para enlaces */
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+    
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>    
 </head>
 <body>
-    <h1>Ejemplo HTML y CSS</h1>
-    <p>Este es un ejemplo básico de cómo combinar HTML y CSS para dar estilo a una página web.</p>
-    <div class="caja">
-        <p>Este es un div con clase "caja" que tiene un estilo diferente.</p>
+    <header>
+        <img src="Imagenes\foto-de-perfil.jpg" alt="foto de perfil">
+        <h1>Jesús David Gómez Gil</h1>
+    </header>
+    <div class="container">
+        <section id="inicio">
+            <h2>Inicio</h2>
+            <p>Soy un Backend Developer en Python, con conocimientos
+                profesionales de Git y GitHub, con conocimientos en
+                programación orientada a objetos en python, conocimientos
+                sobre la Terminal y linea de comandos, Desarrollo Backend,
+                Fundamentos de bases de Datos, Selenium (entorno de pruebas)
+                con python, Creación de CRUDO, conocimientos en frameworks
+                como (FastAPI, Flask y Django) y puedo aportar conocimientos
+                valiosos a las empresas relacionadas con tecnología, Me
+                distingo por mi colaboración en equipo, autodidacta y
+                adaptabilidad a los cambios.</p>
+        </section>
+
+        <section id="proyectos">
+            <h2>Proyectos</h2>
+            <p>Para ver algunos de mis proyectos que desarroyado dirigirse al suigiente enlase <a href="https://github.com/Jesus19970225/avance-en-la-carrera">Proyectos</a></p>
+        </section>
+
+        <section id="habilidades">
+            <h2>Habilidades</h2>
+            <p>CARRERA:Desarrollo Backend con Python y Django
+                <br> - Curso de Docker(Platzi 2021)
+                <br> - Curso de Estructuras de Datos Lineales con Python(Platzi 2021)
+                <br> - Curso Avanzado de Django(Platzi 2021)
+                <br> - Curso de Django(Platzi 2021)
+                <br> - Curso de Flask(Platzi 2021)
+                <br> - Curso de FastAPI: Modularización, Datos Avanzados y Errores(Platzi 2021)
+                <br> - Curso de FastAPI: Fundamentos, Path Operations y Validaciones(Platzi 2021)
+                <br> - Curso Práctico de Python: Creación de un CRUD(Platzi 2021)
+                <br> - Curso Profesional de Python(Platzi 2021)
+                <br> - Curso de Introducción a Selenium con Python(Platzi 2021)
+                <br> - Curso de Fundamentos de Bases de Datos(Platzi 2021)
+                <br> - Curso de Programación Orientada a Objetos:POO(Platzi 2021)
+                <br> - Curso de Python: Comprehensions, Lambdas y Manejo de Errores(Platzi 2021)
+                <br> - Curso de Introducción al Desarrollo Backend(Platzi 2021)
+                <br> - Curso de Introducción a la Terminal y Línea de Comandos(Platzi 2021)
+                <br> - Curso de Python Intermedio (Platzi 2021)
+                <br> - Curso Profesional de Git y GitHub (Platzi 2021)
+                <br> - Curso Definitivo de HTML y CSS(Platzi 2021)
+                <br> - Curso Básico de Python(Platzi 2021)
+            </p>
+        </section>
+
+        <section id="contacto">
+            <h2>Contacto</h2>
+                <p>Celular: +57 3227942761
+                    <br>Correo Electronico: gomezgiljesusdavid704@hotmail.com
+                    <br>Redes Sociales: <a href="https://www.linkedin.com/feed/">Linkedin</a>
+                </p>
+        </section>
     </div>
 </body>
 </html>
